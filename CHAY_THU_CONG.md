@@ -49,7 +49,7 @@ ros2 launch tb4_simplesimu gesture_control.launch.py start_camera:=false
 ```bash
 cd /home/huy/tb4_simplesimu/release/TurtleBot-4_t6
 source scripts/bai6_env.sh
-python scripts/gesture_recognition_node.py --ros-args \
+.venv-gesture/bin/python3 scripts/gesture_recognition_node.py --ros-args \
   --params-file config/gesture.yaml \
   -p model_path:="$PWD/models/gesture_recognizer.task" \
   -p camera_index:=0
@@ -71,6 +71,12 @@ Khi đã chạy mà mất tay hoặc mất tín hiệu, robot dừng và cần c
 Không mở teleop/Nav2 đồng thời với bài này.
 
 ## Dừng và kiểm tra
+
+Nếu ROS báo package ở `/home/huy/colcon_ws/install/...`, terminal đó chưa
+nạp môi trường Bài 6. Chạy lại đủ hai dòng `cd` và `source scripts/bai6_env.sh`
+trong chính terminal bị lỗi, rồi chạy lại node. Đổi thư mục bằng `cd` chưa
+đủ để ROS chọn package mới. Lệnh webcam dùng Python của venv trực tiếp nên
+không cần cài thêm lệnh `python` cho hệ thống.
 
 Xòe tay để robot dừng. Sau đó Ctrl+C ở terminal 3, 2, rồi 1.
 

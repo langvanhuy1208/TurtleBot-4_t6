@@ -2,8 +2,12 @@
 # Source this file in each terminal before starting an individual demo node.
 bai6_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$bai6_root" || return 1
-source /opt/ros/humble/setup.bash
-source "$bai6_root/install/setup.bash"
+if [[ ! -f "$bai6_root/install/setup.bash" ]]; then
+    echo 'Chưa build Bài 6. Chạy: source /opt/ros/humble/setup.bash && colcon build --symlink-install' >&2
+    return 1
+fi
+source /opt/ros/humble/setup.bash || return 1
+source "$bai6_root/install/setup.bash" || return 1
 if [[ -f "$bai6_root/.venv-gesture/bin/activate" ]]; then
     source "$bai6_root/.venv-gesture/bin/activate"
 fi
