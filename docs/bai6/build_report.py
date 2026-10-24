@@ -17,7 +17,7 @@ from reportlab.graphics.shapes import Drawing, Rect, String, Line, Polygon
 HERE = Path(__file__).resolve().parent
 STUDENT = '[Điền họ tên, MSSV, lớp]'
 VIDEO_URL = '[Bổ sung link Google Drive công khai sau khi quay]'
-GITHUB_URL = '[Bổ sung link repository GitHub Public]'
+GITHUB_URL = 'https://github.com/langvanhuy1208/TurtleBot-4_t6'
 
 
 def main():

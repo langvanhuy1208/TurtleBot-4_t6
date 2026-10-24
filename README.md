@@ -71,6 +71,9 @@ MediaPipe chạy bằng Python venv để dùng chung thư viện ROS hệ thố
 
 ## Chạy và thử bằng tay
 
+Máy hiện tại: `/home/huy/tb4_simplesimu/release/TurtleBot-4_t6`.
+Xem **[hướng dẫn chạy thủ công bằng 3 terminal](CHAY_THU_CONG.md)**.
+
 ```bash
 cd ~/tb4_bai6
 ./scripts/run_bai6_live.sh
