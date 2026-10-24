@@ -70,10 +70,6 @@ Hãy build trong checkout này và source đúng `install/setup.bash` của nó.
 MediaPipe chạy bằng Python venv để dùng chung thư viện ROS hệ thống.
 
 ## Chạy và thử bằng tay
-
-Máy hiện tại: `/home/huy/tb4_simplesimu/release/TurtleBot-4_t6`.
-Xem **[hướng dẫn chạy thủ công bằng 3 terminal](CHAY_THU_CONG.md)**.
-
 ```bash
 cd ~/tb4_bai6
 ./scripts/run_bai6_live.sh
@@ -97,35 +93,6 @@ tiến trình. Không bật đồng thời teleop hoặc node khác publish `/cm
 Log ở `log/bai6_live/`. Script mặc định dùng ROS domain 86 và Cyclone DDS
 trên loopback để tách phiên mô phỏng khỏi các robot khác trên mạng.
 
-## Kiểm chứng
-
-- **19/19 kiểm thử logic đạt**; package build thành công.
-- Kiểm thử tích hợp ROS: chọn, xác nhận, dừng, timeout cử chỉ/scan, vật cản.
-- Đã mở webcam thật và nhận cử chỉ, chạy robot trong Gazebo.
-- Đã kiểm tra 4 chu kỳ tiến–lùi, vòng tròn và chào qua nhãn thử.
-- Vòng tròn đo bằng odometry: **6,273 rad**, lệch điểm đầu khoảng **0,015 m**.
-
-Tiến–lùi chạy theo thời gian, chưa có phản hồi vị trí; lần đo kết thúc lệch
-điểm đầu khoảng 0,519 m. Đây không phải bộ bám quỹ đạo chính xác.
-Kiểm thử bằng nhãn thử không thay thế demo đầy đủ bằng webcam thật.
-
-```bash
-python3 -m unittest discover -s tests -v
-source /opt/ros/humble/setup.bash
-ROS_DOMAIN_ID=87 ROS_LOCALHOST_ONLY=1 python3 tests/ros_gesture_smoke.py
-.venv-gesture/bin/python tests/mediapipe_smoke.py models/gesture_recognizer.task
-```
-
-## Tài liệu và báo cáo
-
-- [Hướng dẫn chi tiết, tham số và xử lý lỗi](docs/bai6/README.md).
-- [Báo cáo PDF](docs/bai6/bao_cao.pdf).
-- [Kết quả kiểm chứng](docs/bai6/validation.md).
-- [Số liệu chuyển động Gazebo](docs/bai6/gazebo_test_results.json).
-- [Phiếu ghi thực nghiệm và nội dung cần bổ sung](docs/bai6/ket_qua_thuc_nghiem.md).
-
-Video Google Drive công khai và thống kê độ chính xác nhận diện chưa có.
-Thông tin sinh viên và các mục còn trống trong báo cáo cần điền trước khi nộp.
 
 ## Cấu trúc
 
@@ -138,12 +105,3 @@ urdf/          Mô hình TurtleBot 4 và cấu hình LiDAR
 tests/         Kiểm thử logic, ROS và MediaPipe
 docs/bai6/     Hướng dẫn, báo cáo PDF và kết quả kiểm chứng
 ```
-
-## Tham khảo và giấy phép
-
-- [MediaPipe Gesture Recognizer](https://ai.google.dev/edge/mediapipe/solutions/vision/gesture_recognizer/python).
-- [OpenCV](https://docs.opencv.org/4.x/).
-- [TurtleBot 4](https://turtlebot.github.io/turtlebot4-user-manual/software/simulation.html).
-
-Mã nguồn theo [Apache License 2.0](LICENSE). Các tệp dựa trên TurtleBot 4
-giữ thông tin bản quyền gốc của Clearpath Robotics.
