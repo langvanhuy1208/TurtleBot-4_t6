@@ -1,0 +1,9 @@
+# Generated ROS workspace artifacts (existing tracked artifacts are unaffected).
+build/
+install/
+log/
+__pycache__/
+*.py[cod]
+.venv*/
+models/*.task
+*.download
